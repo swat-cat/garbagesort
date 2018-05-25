@@ -16,7 +16,12 @@ class _StartScreenState extends LoadingBaseState<StartScreen> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text("Vinnitsa Garbage Sort Game",
+            new Image(
+              image: AssetImage('images/recycle_bin.png'),
+              width: 250.0,
+              height: 250.0,
+            ),
+            new Text("Waste Sorting Game",
               textAlign: TextAlign.center,
               style: new TextStyle(
                   color: Colors.blue,
@@ -26,6 +31,7 @@ class _StartScreenState extends LoadingBaseState<StartScreen> {
             ),
             new Padding(padding: new EdgeInsets.only(bottom: 20.0)),
             new RaisedButton(
+                color: Colors.greenAccent,
                 child: new Text("Start Game"),
                 onPressed: (){
                   Navigator.of(context).pushReplacementNamed("/game");

@@ -18,8 +18,8 @@ class GamePresenterImpl implements GamePresenter{
   VoidCallback initView(GameState state) =>(){
     this.state = state;
     this.state.properties.score = 0;
-    this.state.properties.maxCount = 50;
-    this.state.properties.fallTime = 10;
+    this.state.properties.maxCount = 20;
+    this.state.properties.fallTime = 8;
     this.state.properties.level = 1;
     new Timer.periodic(timeout,(Timer t){
       reState((){
@@ -50,7 +50,7 @@ class GamePresenterImpl implements GamePresenter{
     state.properties.maxCount --;
     if(state.properties.maxCount <= 0){
       state.properties.level++;
-      state.properties.maxCount = 50;
+      state.properties.maxCount = 20;
       if (state.properties.fallTime>5) {
         state.properties.fallTime--;
       }
@@ -68,7 +68,7 @@ class GamePresenterImpl implements GamePresenter{
   @override
   void reinit() {
     this.state.properties.score = 0;
-    this.state.properties.maxCount = 50;
+    this.state.properties.maxCount = 20;
     this.state.properties.fallTime = 10;
     this.state.properties.level = 1;
   }

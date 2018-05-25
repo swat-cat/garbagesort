@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'type.dart';
 
@@ -29,7 +31,7 @@ class _GarbageItemState extends State<GarbageItem> with TickerProviderStateMixin
   void initState() {
     super.initState();
     position = widget.initPos;
-    size = new Size(25.0, 25.0);
+    size = new Size(50.0, 50.0);
     isDrugging = false;
     controller = new AnimationController(vsync: this, duration: new Duration(seconds: widget.fallSpeed));
     animation = new Tween(begin: widget.initPos.dy, end: widget.end).animate(
@@ -66,10 +68,10 @@ class _GarbageItemState extends State<GarbageItem> with TickerProviderStateMixin
         child: new Transform(
             transform: new Matrix4.translationValues(0.0, 0.0, 0.0),
             child: new GestureDetector(
-              child: new Container(
+              child: new Image(
+                image: AssetImage(widget.image),
                 width: size.width,
                 height: size.height,
-                color: widget.type == GarbageType.WET ? Colors.green : Colors.yellow,
               ),
               onHorizontalDragStart: (dragStartDetails){
                 controller.stop(canceled: false);
